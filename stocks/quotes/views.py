@@ -9,19 +9,25 @@ from django.shortcuts import render
 #Polygon.io (prob use this one)
 #UjyFDQigBbrjV_NfEPRc9kDC3SlqEsxR
 
+#finazon
+#7abf30fc13de4a8c98e2d3c201b43289yp
+
+#tiingo
+#53125623df24601520fe3ccf70180b07efd62258
+
 #broswer request for home page
 def home(request):
     import requests
     import json
 
-    api_requests = requests.get("https://api.polygon.io/v1/open-close/AAPL/2023-01-09?adjusted=true&apiKey=UjyFDQigBbrjV_NfEPRc9kDC3SlqEsxR")
-    apiKey = 'UjyFDQigBbrjV_NfEPRc9kDC3SlqEsxR'
+    api_requests = requests.get("https://api.tiingo.com/iex/?tickers=aapl,&token=53125623df24601520fe3ccf70180b07efd62258")
+    apiKey = '53125623df24601520fe3ccf70180b07efd62258'
 
     try:
-        api = json.loads(api_requests.content)
+        api_requests.raise_for_status()
+        api = api_requests.json()
     except Exception as e:
         api = "Error..."
-
     return render(request, 'home.html', {'api': api})
 
 #browser request for about page

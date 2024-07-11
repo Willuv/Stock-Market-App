@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Hello World!</h1>
-<br/>
-<br/>
-
+<!-- Check for API errors again -->
 {% if api %}
     {% if api == "Error..." %}
-        There was a problem with your ticker symbol,please try again...
+        There was a problem with your ticker symbol, please try again...
     {% else %}
-        
-        {% for key, value in api.items %}
-            {{key}}: {{ value }}<br/>
+    <!-- Loop through the list for the desired info -->
+    {% for stock in api %}
+            <h1>{{ stock.ticker }}</h1><br/>
+            Price: ${{ stock.last }}<br/>
+            Previous Close: {{ stock.prevClose }}<br/>
+            Daily High: {{ stock.high }}<br/>
+            Daily Low: {{ stock.low }}<br/>
+            Volume: {{ stock.volume }}<br/>
         {% endfor %}
-        
+
     {% endif %}
 {% endif %}
-
 {% endblock %}
