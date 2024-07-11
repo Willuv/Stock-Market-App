@@ -14,7 +14,7 @@ def home(request):
     import requests
     import json
 
-    api_requests = requests.get("https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-01-09?apiKey=UjyFDQigBbrjV_NfEPRc9kDC3SlqEsxR")
+    api_requests = requests.get("https://api.polygon.io/v1/open-close/AAPL/2023-01-09?adjusted=true&apiKey=UjyFDQigBbrjV_NfEPRc9kDC3SlqEsxR")
     apiKey = 'UjyFDQigBbrjV_NfEPRc9kDC3SlqEsxR'
 
     try:
