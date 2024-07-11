@@ -1,21 +1,17 @@
 {% extends 'base.html' %}
+
 {% block content %}
-
-<!-- Check for API errors again -->
-{% if api %}
-    {% if api == "Error..." %}
-        There was a problem with your ticker symbol, please try again...
-    {% else %}
-    <!-- Loop through the list for the desired info -->
-    {% for stock in api %}
-            <h1>{{ stock.ticker }}</h1><br/>
-            Price: ${{ stock.last }}<br/>
-            Previous Close: {{ stock.prevClose }}<br/>
-            Daily High: {{ stock.high }}<br/>
-            Daily Low: {{ stock.low }}<br/>
-            Volume: {{ stock.volume }}<br/>
-        {% endfor %}
-
+    <!-- Check for API errors -->
+    {% if api %}
+        {% if api == "Error..." %}
+            There was a problem with your ticker symbol, please try again...
+        {% else %}
+            <h1>{{ api.ticker }}</h1><br/>
+            Price: ${{ api.last }}<br/>
+            Previous Close: {{ api.prevClose }}<br/>
+            Daily High: {{ api.high }}<br/>
+            Daily Low: {{ api.low }}<br/>
+            Volume: {{ api.volume }}<br/>
+        {% endif %}
     {% endif %}
-{% endif %}
 {% endblock %}
