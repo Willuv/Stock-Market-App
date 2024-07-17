@@ -22,10 +22,14 @@ def home(request):
         except Exception as e:
             api = "Error..."
         return render(request, 'home.html', {'api': api})
-    #else as to enter a ticker
+    #else say to enter a ticker
     else:
         return render(request, 'home.html', {'ticker': "Enter a Ticker Symbol Above..."})
 
 #browser request for about page
 def about(request):
     return render(request, 'about.html', {})
+
+
+def add_stock(request):
+        return render(request, 'add_stock.html', {})
