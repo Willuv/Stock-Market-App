@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from .models import Stock
+from .forms import StockForm
+from django.contrib import messages
 
 #broswer request for home page
 def home(request):
@@ -31,9 +33,21 @@ def home(request):
 def about(request):
     return render(request, 'about.html', {})
 
-
+#browser request for add_stock page
 def add_stock(request):
-        
+        # if someone filled the form and clicked the button
+        if request.method == 'POST':
+            # create a form variable with the ticker
+            form = StockForm(request.POST or None)
 
-        ticker = Stock.objects.all()
-        return render(request, 'add_stock.html', {'ticker': ticker})
+            # check the form is valid
+            if form.is_valid():
+                # save to database
+                form.save()
+                # print success messgae
+                messages.success(request, ("Stock Has Been Added!"))
+                #return to add_stock page
+                return redirect('add_stock')
+        else:
+            ticker = Stock.objects.all()
+            return render(request, 'add_stock.html', {'ticker': ticker})
