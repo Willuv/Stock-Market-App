@@ -3,7 +3,10 @@
 
 
 <h1>Add Stock...</h1>
+<br/>
 
-
+{% for item in ticker %}
+    {{ item }}<br/>
+    {% endfor %}
 
 {% endblock %}

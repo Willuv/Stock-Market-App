@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings
+from .models import Stock
 
 #broswer request for home page
 def home(request):
@@ -32,4 +33,7 @@ def about(request):
 
 
 def add_stock(request):
-        return render(request, 'add_stock.html', {})
+        
+
+        ticker = Stock.objects.all()
+        return render(request, 'add_stock.html', {'ticker': ticker})
