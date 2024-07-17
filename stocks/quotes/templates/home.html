@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
-
 {% block content %}
+
+{% if ticker %}
+    {{ ticker }}
+{% endif %}
     <!-- Check for API errors -->
     {% if api %}
         {% if api == "Error..." %}
