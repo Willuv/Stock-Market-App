@@ -27,6 +27,10 @@
               <!-- button for About page calls urls.py file for link-->
             <a class="nav-link" href="{% url 'add_stock' %}">Add Stock</a>
           </li>
+          <li class="nav-item">
+            <!-- button for About page calls urls.py file for link-->
+          <a class="nav-link" href="{% url 'delete_stock' %}">Delete Stock</a>
+        </li>
           </ul>
           <form action="{% url 'home' %}" class="form-inline my-2 my-lg-0" method="POST">
               {% csrf_token %}
@@ -50,7 +54,7 @@
             </div>
           {% endfor %}
         {% endif %}
-        
+
         {% block content %}
 
         {% endblock %}
