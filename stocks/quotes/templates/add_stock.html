@@ -30,25 +30,20 @@
   </thead>
   <tbody>
     <!-- if there is a ticker print out all the information into the table -->
-  {% if ticker %}
-    {% for list_item in output %}
-      <tr>
-      <th scope="row">{{ list_item.ticker }}</th>
-      <td>${{ list_item.last }}</td>
-      <td>${{ list_item.prevClose }}</td>
-      <td>${{ list_item.high }}</td>
-      <td>${{ list_item.low }}</td>
-      <td>{{ list_item.volume }}</td>
-      </tr>
-    {% endfor %}
-
+    {% if ticker %}
+      {% for list_item in output %}
+        <tr>
+        <th scope="row">{{ list_item.ticker }}</th>
+        <td>${{ list_item.last }}</td>
+        <td>${{ list_item.prevClose }}</td>
+        <td>${{ list_item.high }}</td>
+        <td>${{ list_item.low }}</td>
+        <td>{{ list_item.volume }}</td>
+        </tr>
+      {% endfor %}
   </tbody>
 </table>
 {% endif %}
-
-
-
-
 
 {% endblock %}
 
