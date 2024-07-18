@@ -26,24 +26,26 @@
       <th scope="col">Daily High</th>
       <th scope="col">Daily Low</th>
       <th scope="col">Volume</th>
+      <th scope="col">Delete Stock</th>
+
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
+
+    <!-- print the tickers in the database -->
+    {% for item in ticker %}
+      <tr>
+        <th scope="row">{{ item }}</th>
+        <td>Stuff</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td><a href ="{% url 'delete' item.id %}">Delete Stock</td>
+      </tr>  
+    {% endfor %}
+    
   </tbody>
 </table>
-
-<!-- print the tickers in the database -->
-{% for item in ticker %}
-    {{ item }}  -  <a href ="{% url 'delete' item.id %}">
-    Delete Stock</a><br/>
-{% endfor %}
 
 {% endblock %}
