@@ -45,8 +45,21 @@
       </tr>  
     {% endfor %}
   {% endif %}
-    
   </tbody>
 </table>
 
+{% for list_item in output %}
+    {{ list_item.ticker }}<br/>
+    {{ list_item.last }}<br/>
+    {{ list_item.prevClose }}<br/>
+    {{ list_item.high }}<br/>
+    {{ list_item.low }}<br/>
+    {{ list_item.volume }}<br/><br/>
+{% endfor %}
+
+
+
+
+
 {% endblock %}
+
