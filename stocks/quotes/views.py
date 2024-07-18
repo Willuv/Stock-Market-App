@@ -51,3 +51,10 @@ def add_stock(request):
         else:
             ticker = Stock.objects.all()
             return render(request, 'add_stock.html', {'ticker': ticker})
+
+#function to delete stock from database
+def delete(request, stock_id):
+    item = Stock.objects.get(pk=stock_id)
+    item.delete()
+    messages.success(request, ("Stock Has Been Deleted!"))
+    return redirect(add_stock)

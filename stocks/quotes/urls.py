@@ -8,4 +8,6 @@ urlpatterns = [
     path('about.html', views.about, name="about"),
     #path to add_stock
     path('add_stock.html', views.add_stock, name="add_stock"),
+    #path to delete
+    path('delete/<stock_id>', views.delete, name="delete")
 ]
