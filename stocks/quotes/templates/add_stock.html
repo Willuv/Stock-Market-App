@@ -31,31 +31,23 @@
     </tr>
   </thead>
   <tbody>
+    <!-- if there is a ticker print out all the information into the table -->
   {% if ticker %}
-    <!-- print the tickers in the database -->
-    {% for item in ticker %}
+    {% for list_item in output %}
       <tr>
-        <th scope="row">{{ item }}</th>
-        <td>Stuff</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td><a href ="{% url 'delete' item.id %}">Delete Stock</td>
-      </tr>  
+      <th scope="row">{{ list_item.ticker }}</th>
+      <td>${{ list_item.last }}</td>
+      <td>${{ list_item.prevClose }}</td>
+      <td>${{ list_item.high }}</td>
+      <td>${{ list_item.low }}</td>
+      <td>{{ list_item.volume }}</td>
+      <td><a href ="/">Delete Stock</td>
+      </tr>
     {% endfor %}
-  {% endif %}
+
   </tbody>
 </table>
-
-{% for list_item in output %}
-    {{ list_item.ticker }}<br/>
-    {{ list_item.last }}<br/>
-    {{ list_item.prevClose }}<br/>
-    {{ list_item.high }}<br/>
-    {{ list_item.low }}<br/>
-    {{ list_item.volume }}<br/><br/>
-{% endfor %}
+{% endif %}
 
 
 
