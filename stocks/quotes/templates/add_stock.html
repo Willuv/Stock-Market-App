@@ -31,7 +31,7 @@
     </tr>
   </thead>
   <tbody>
-
+  {% if ticker %}
     <!-- print the tickers in the database -->
     {% for item in ticker %}
       <tr>
@@ -44,6 +44,7 @@
         <td><a href ="{% url 'delete' item.id %}">Delete Stock</td>
       </tr>  
     {% endfor %}
+  {% endif %}
     
   </tbody>
 </table>
